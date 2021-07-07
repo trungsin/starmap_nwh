@@ -20,18 +20,18 @@ config = {
   datapath: "../data/",
   planets:  { show: false },
   stars: {
-    show: true,    // Show stars
+    show: false,    // Show stars
     limit: 6,      // Show only stars brighter than limit magnitude
     //colors: true,  // Show stars in spectral colors, if not use "color"
     style: { fill: "#ffffff", opacity: 1 }, // Default style for stars
     names: true,  // Show star names (Bayer, Flamsteed, Variable star, Gliese, whichever applies first)
-    proper: true, // Show proper name (if present)
-    desig: true,  // Show all names, including Draper and Hipparcos
+    //proper: true, // Show proper name (if present)
+    //desig: true,  // Show all names, including Draper and Hipparcos
     namelimit: 2.5,  // Show only names for stars brighter than namelimit
-    namestyle: { fill: "#ddddbb", font: "9px Georgia, Times, 'Times Roman', serif", align: "left", baseline: "top" },
+    namestyle: { fill: "#ddddbb", font: "7px Georgia, Times, 'Times Roman', serif", align: "left", baseline: "top" },
     size: 4,       // Maximum size (radius) of star circle in pixels
     //data: 'stars.14.json' // Data source for stellar data
-    data: 'stars.8.json' // Alternative deeper data source for stellar data
+    data: 'stars.6.json' // Alternative deeper data source for stellar data
   },
   dsos: {
     show: false,   // Show Deep Space Objects
