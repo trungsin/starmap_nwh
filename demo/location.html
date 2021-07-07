@@ -19,6 +19,18 @@ config = {
   projection: "airy",
   datapath: "../data/",
   planets:  { show: true },
+  form: true,         // Display form for interactive settings. Needs a div with
+                      // id="celestial-form", created automatically if not present
+  location: false,    // Display location settings. Deprecated, use formFields below
+  formFields: {"location": true,  // Set visiblity for each group of fields with the respective id
+               "general": true,  
+               "stars": true,  
+               "dsos": true,  
+               "constellations": true,  
+               "lines": true,  
+               "other": true,  
+               "download": false},  
+  advanced: true,     // Display fewer form fields if false 
   stars: {
     show: true,    // Show stars
     limit: 6,      // Show only stars brighter than limit magnitude
