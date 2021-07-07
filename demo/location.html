@@ -19,45 +19,19 @@ config = {
   projection: "airy",
   datapath: "../data/",
   planets:  { show: true },
-  dsos: {
-    show: false,    // Show Deep Space Objects 
-    limit: 6,      // Show only DSOs brighter than limit magnitude
-    colors: true,  // // Show DSOs in symbol colors if true, use style setting below if false
-    style: { fill: "#cccccc", stroke: "#cccccc", width: 2, opacity: 1 }, // Default style for dsos
-    names: false,   // Show DSO names
-    namesType: "name",  // Type of DSO ('desig' or language) name shown
-                        // (see list below for languages codes available for dsos)
-    nameStyle: { fill: "#cccccc", font: "8px Helvetica, Arial, serif", 
-                 align: "left", baseline: "top" }, // Style for DSO names
-    nameLimit: 6,  // Show only names for DSOs brighter than namelimit
-    size: null,    // Optional seperate scale size for DSOs, null = stars.size
-    exponent: 1.4, // Scale exponent for DSO size, larger = more non-linear
-    data: 'dsos.bright.json', // Data source for DSOs, 
-                              // opt. number indicates limit magnitude
-    symbols: {  //DSO symbol styles, 'stroke'-parameter present = outline
-      gg: {shape: "circle", fill: "#ff0000"},          // Galaxy cluster
-      g:  {shape: "ellipse", fill: "#ff0000"},         // Generic galaxy
-      s:  {shape: "ellipse", fill: "#ff0000"},         // Spiral galaxy
-      s0: {shape: "ellipse", fill: "#ff0000"},         // Lenticular galaxy
-      sd: {shape: "ellipse", fill: "#ff0000"},         // Dwarf galaxy
-      e:  {shape: "ellipse", fill: "#ff0000"},         // Elliptical galaxy
-      i:  {shape: "ellipse", fill: "#ff0000"},         // Irregular galaxy
-      oc: {shape: "circle", fill: "#ffcc00", 
-           stroke: "#ffcc00", width: 1.5},             // Open cluster
-      gc: {shape: "circle", fill: "#ff9900"},          // Globular cluster
-      en: {shape: "square", fill: "#ff00cc"},          // Emission nebula
-      bn: {shape: "square", fill: "#ff00cc", 
-           stroke: "#ff00cc", width: 2},               // Generic bright nebula
-      sfr:{shape: "square", fill: "#cc00ff", 
-           stroke: "#cc00ff", width: 2},               // Star forming region
-      rn: {shape: "square", fill: "#00ooff"},          // Reflection nebula
-      pn: {shape: "diamond", fill: "#00cccc"},         // Planetary nebula 
-      snr:{shape: "diamond", fill: "#ff00cc"},         // Supernova remnant
-      dn: {shape: "square", fill: "#999999", 
-           stroke: "#999999", width: 2},               // Dark nebula grey
-      pos:{shape: "marker", fill: "#cccccc", 
-           stroke: "#cccccc", width: 1.5}              // Generic marker
-    }
+  stars: {
+    show: true,    // Show stars
+    limit: 6,      // Show only stars brighter than limit magnitude
+    colors: true,  // Show stars in spectral colors, if not use "color"
+    style: { fill: "#ffffff", opacity: 1 }, // Default style for stars
+    names: false,  // Show star names (Bayer, Flamsteed, Variable star, Gliese, whichever applies first)
+    proper: false, // Show proper name (if present)
+    desig: false,  // Show all names, including Draper and Hipparcos
+    namelimit: 2.5,  // Show only names for stars brighter than namelimit
+    namestyle: { fill: "#ddddbb", font: "11px Georgia, Times, 'Times Roman', serif", align: "left", baseline: "top" },
+    size: 4,       // Maximum size (radius) of star circle in pixels
+    data: 'stars.6.json' // Data source for stellar data
+    //data: 'stars.8.json' // Alternative deeper data source for stellar data
   },
   //geopos:{ lo37.7749,122.4194}
 };
