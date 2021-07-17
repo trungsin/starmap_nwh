@@ -164,7 +164,7 @@ Canvas.symbol = function () {
 Celestial.Canvas = Canvas;
 
 
-/*var color = "#fff", angle = 0, align = "center", baseline = "middle", font = "10px sans-serif", padding = [0,0], aPos, sText;
+var color = "#fff", angle = 0, align = "center", baseline = "middle", font = "10px sans-serif", padding = [0,0], aPos, sText;
 
 canvas.text = function () {
 
@@ -256,4 +256,3 @@ canvas.text = function () {
   }
   
 
-*/
