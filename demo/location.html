@@ -3,10 +3,22 @@
 <head>
   <meta charset="utf-8">
   <title>D3-Celestial Starmap</title>
-  <script type="text/javascript" src="../celestial.js"></script>
+  <script type="text/javascript" src="../lib/d3.min.js"></script>
+  <script type="text/javascript" src="../lib/d3.geo.projection.min.js"></script>
+  <script type="text/javascript" src="../celestial.min.js"></script>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="../celestial.css">
 </head>
 <body>
+  <div class="example-container">
+    <div class="example-row">
+      <div class="example-content-main">Main content</div>
+      <div class="example-content-secondary">Secondary content</div>
+    </div>
+  </div>
   <div style="overflow:hidden;"><div id="celestial-map"></div></div>
   <div id="celestial-form"></div>
 
