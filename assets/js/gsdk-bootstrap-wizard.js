@@ -26,9 +26,9 @@ $(document).ready(function(){
     // Code for the Validator
     var $validator = $('.wizard-card form').validate({
 		  rules: {
-		    firstname: {
+		    location: {
 		      required: true,
-		      minlength: 3
+		      minlength: 1
 		    },
 		    lastname: {
 		      required: true,
