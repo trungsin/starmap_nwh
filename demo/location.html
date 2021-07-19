@@ -73,18 +73,19 @@ min-width: 100%;
                     <div class="tab-content">
                         <div class="tab-pane" id="moment">
                           <div class="row">
-                            <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
-                            <div class="col-sm-10 col-sm-offset-1">
-                              <div class="form-group">
-                                  <label>Location your: <small>(required)</small></label>
-                                  <div id="geocoder"> </div>
+                              <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
+                              <div class="col-sm-10 col-sm-offset-1">
+                                  <div class="form-group">
+                                      <label>Location your: <small>(required)</small></label>
+                                      <div id="geocoder"></div>
+                                  </div>
                               </div>
-                            </div
                           </div>
                         </div>
                         <div class="tab-pane" id="design">
                             <h4 class="info-text"> What are you doing? (checkboxes) </h4>
                             <div class="row">
+
                                 <div class="col-sm-10 col-sm-offset-1">
                                     <div class="col-sm-4">
                                         <div class="choice" data-toggle="wizard-checkbox">
@@ -258,54 +259,32 @@ config = {
   form: false,         // Display form for interactive settings. Needs a div with
                       // id="celestial-form", created automatically if not present
   location: false,    // Display location settings. Deprecated, use formFields below
-  interactive: false,  // Enable zooming and rotation with mousewheel and dragging
+  formFields: {"location": true,  // Set visiblity for each group of fields with the respective id
+               "general": true,  
+               "stars": true,  
+               "dsos": true,  
+               "constellations": true,  
+               "lines": true,  
+               "other": true,  
+               "download": true},  
+  advanced: true,     // Display fewer form fields if false 
   controls: false,     // Display zoom controls
   stars: {
     show: true,    // Show stars
     limit: 6,      // Show only stars brighter than limit magnitude
     //colors: true,  // Show stars in spectral colors, if not use "color"
     style: { fill: "#ffffff", opacity: 1 }, // Default style for stars
-    names: false,  // Show star names (Bayer, Flamsteed, Variable star, Gliese, whichever applies first)
-    proper: false, // Show proper name (if present)
-    desig: false,  // Show all names, including Draper and Hipparcos
+    names: true,  // Show star names (Bayer, Flamsteed, Variable star, Gliese, whichever applies first)
+    proper: true, // Show proper name (if present)
+    desig: true,  // Show all names, including Draper and Hipparcos
     namelimit: 2.5,  // Show only names for stars brighter than namelimit
     namestyle: { fill: "#ddddbb", font: "7px Georgia, Times, 'Times Roman', serif", align: "left", baseline: "top" },
     size: 4,       // Maximum size (radius) of star circle in pixels
     //data: 'stars.14.json' // Data source for stellar data
     data: 'stars.6.json' // Alternative deeper data source for stellar data
   },
-  planets: {  //Show planet locations, if date-time is set
-    show: true,
-    // List of all objects to show
-    which: ["sol", "mer", "ven", "ter", "lun", "mar", "jup", "sat", "ura", "nep"],
-    // Font styles for planetary symbols
-    symbols: {  // Character and color for each symbol in 'which' above (simple circle: \u25cf), optional size override for Sun & Moon
-      "sol": {symbol: "\u2609", letter:"Su", fill: "#ffff00", size:""},
-      "mer": {symbol: "\u263f", letter:"Me", fill: "#cccccc"},
-      "ven": {symbol: "\u2640", letter:"V", fill: "#eeeecc"},
-      "ter": {symbol: "\u2295", letter:"T", fill: "#00ccff"},
-      "lun": {symbol: "\u25cf", letter:"L", fill: "#ffffff", size:""}, // overridden by generated crecent, except letter & size
-      "mar": {symbol: "\u2642", letter:"Ma", fill: "#ff6600"},
-      "cer": {symbol: "\u26b3", letter:"C", fill: "#cccccc"},
-      "ves": {symbol: "\u26b6", letter:"Ma", fill: "#cccccc"},
-      "jup": {symbol: "\u2643", letter:"J", fill: "#ffaa33"},
-      "sat": {symbol: "\u2644", letter:"Sa", fill: "#ffdd66"},
-      "ura": {symbol: "\u2645", letter:"U", fill: "#66ccff"},
-      "nep": {symbol: "\u2646", letter:"N", fill: "#6666ff"},
-      "plu": {symbol: "\u2647", letter:"P", fill: "#aaaaaa"},
-      "eri": {symbol: "\u26aa", letter:"E", fill: "#eeeeee"}
-    },
-    symbolStyle: { fill: "#00ccff", font: "bold 17px 'Lucida Sans Unicode', Consolas, sans-serif", 
-             align: "center", baseline: "middle" },
-    symbolType: "disk",  // Type of planet symbol: 'symbol' graphic planet sign, 'disk' filled circle scaled by magnitude
-                           // 'letter': 1 or 2 letters S Me V L Ma J S U N     
-    names: false,          // Show name in nameType language next to symbol
-    nameStyle: { fill: "#00ccff", font: "14px 'Lucida Sans Unicode', Consolas, sans-serif", align: "right", baseline: "top" },
-    namesType: "desig"     // Language of planet name (see list below of language codes available for planets), 
-                           // or desig = 3-letter designation
-  },
   constellations: {
-    names: false,      // Show constellation names 
+    names: true,      // Show constellation names 
     namesType: "iau", // Type of name Latin (iau, default), 3 letter designation (desig) or other language (see list below)
     nameStyle: { fill:"#cccc99", align: "center", baseline: "middle", 
                  font: ["11px Helvetica, Arial, sans-serif",  // Style for constellations
@@ -317,18 +296,37 @@ config = {
     boundStyle: { stroke: "#cccc00", width: 0.5, opacity: 0.8, dash: [2, 4] }
   },  
   dsos: {
-    show: true,   // Show Deep Space Objects
+    show: false,   // Show Deep Space Objects
     limit: 6,      // Show only DSOs brighter than limit magnitude
-    names: false,   // Show DSO names
-    desig: false,   // Show short DSO names
+    names: true,   // Show DSO names
+    desig: true,   // Show short DSO names
     namelimit: 4,  // Show only names for DSOs brighter than namelimit
     namestyle: { fill: "#cccccc", font: "11px Helvetica, Arial, serif", align: "left", baseline: "top" },
-    data: 'dsos.bright.json' // Data source for DSOs
+    data: 'dsos.bright.json',  // Data source for DSOs
     //data: 'dsos.6.json'  // Alternative broader data source for DSOs
     //data: 'dsos.14.json' // Alternative deeper data source for DSOs
+    symbols: {  //DSO symbol styles
+      gg: {shape: "circle", fill: "#ff0000"},                                 // Galaxy cluster
+      g:  {shape: "ellipse", fill: "#ff0000"},                                // Generic galaxy
+      s:  {shape: "ellipse", fill: "#ff0000"},                                // Spiral galaxy
+      s0: {shape: "ellipse", fill: "#ff0000"},                                // Lenticular galaxy
+      sd: {shape: "ellipse", fill: "#ff0000"},                                // Dwarf galaxy
+      e:  {shape: "ellipse", fill: "#ff0000"},                                // Elliptical galaxy
+      i:  {shape: "ellipse", fill: "#ff0000"},                                // Irregular galaxy
+      oc: {shape: "circle", fill: "#ffcc00", stroke: "#ffcc00", width: 1.5},  // Open cluster
+      gc: {shape: "circle", fill: "#ff9900"},                                 // Globular cluster
+      en: {shape: "square", fill: "#ff00cc"},                                 // Emission nebula
+      bn: {shape: "square", fill: "#ff00cc", stroke: "#ff00cc", width: 2},    // Generic bright nebula
+      sfr:{shape: "square", fill: "#cc00ff", stroke: "#cc00ff", width: 2},    // Star forming region
+      rn: {shape: "square", fill: "#00ooff"},                                 // Reflection nebula
+      pn: {shape: "diamond", fill: "#00cccc"},                                // Planetary nebula
+      snr:{shape: "diamond", fill: "#ff00cc"},                                // Supernova remnant
+      dn: {shape: "square", fill: "#999999", stroke: "#999999", width: 2},    // Dark nebula grey
+      pos:{shape: "marker", fill: "#cccccc", stroke: "#cccccc", width: 1.5}   // Generic marker
+    }
   },
   mw: {
-    show: false,    // Show Milky Way as filled polygons
+    show: true,    // Show Milky Way as filled polygons
     style: { fill: "#ffffff", opacity: "0.15" }
   },
   lines: {
@@ -348,15 +346,9 @@ types: 'country,region,place,postcode,locality,neighborhood'
 });
  
 geocoder.addTo('#geocoder');
- 
-// Get the geocoder results container.
-//var results = document.getElementById('result');
- 
 // Add geocoder result to container.
 geocoder.on('result', function (e) {
   console.log(e.result.geometry.coordinates);
-  //document.getElementById('lat').value = e.result.geometry.coordinates[1];
-  //document.getElementById('lon').value = e.result.geometry.coordinates[0];
   Celestial.skyview({"location" : [e.result.geometry.coordinates[1],e.result.geometry.coordinates[0]]});
 });
  
