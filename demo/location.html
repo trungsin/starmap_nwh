@@ -356,7 +356,7 @@ geocoder.on('result', function (e) {
   console.log(e.result.geometry.coordinates);
   document.getElementById('lat').value = e.result.geometry.coordinates[1];
   document.getElementById('lon').value = e.result.geometry.coordinates[0];
-  Celestial.rotate({center:[e.result.geometry.coordinates[0],e.result.geometry.coordinates[1]]});
+  Celestial.rotate({center:[e.result.geometry.coordinates[1],e.result.geometry.coordinates[0]]});
 });
  
 // Clear results container when search is cleared.
