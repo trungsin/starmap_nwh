@@ -18,6 +18,21 @@
 </head>
 <body>
    <!-- Start your project here-->
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css">
+<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+ 
+<style>
+#geocoder {
+z-index: 1;
+margin: 20px;
+}
+.mapboxgl-ctrl-geocoder {
+min-width: 100%;
+}
+</style>
   <!--Main layout-->
   <main class="mt-5 pt-4">
     <div class="container dark-grey-text mt-5">
@@ -322,45 +337,26 @@ config = {
   //geopos:{ lo37.7749,122.4194}
 };
 Celestial.display(config);
-function initMap() {
+mapboxgl.accessToken = 'pk.eyJ1IjoidHJ1bmdzaW4iLCJhIjoiT2huZERJQSJ9.wVEOXlXtNWVgx-AmgYDY8A';
+var geocoder = new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+types: 'country,region,place,postcode,locality,neighborhood'
+});
  
-    var input = document.getElementById('searchInput');
-    
-
-    var autocomplete = new google.maps.places.Autocomplete(input);
-
-    
-    autocomplete.addListener('place_changed', function() {
-        var place = autocomplete.getPlace();
-        console.log(place);
-        if (!place.geometry) {
-            window.alert("Autocomplete's returned place contains no geometry");
-            return;
-        }
-  
-    
-        var address = '';
-        if (place.address_components) {
-            address = [
-              (place.address_components[0] && place.address_components[0].short_name || ''),
-              (place.address_components[1] && place.address_components[1].short_name || ''),
-              (place.address_components[2] && place.address_components[2].short_name || '')
-            ].join(' ');
-        }
-        // // Location details
-        // for (var i = 0; i < place.address_components.length; i++) {
-        //     if(place.address_components[i].types[0] == 'postal_code'){
-        //         document.getElementById('postal_code').innerHTML = place.address_components[i].long_name;
-        //     }
-        //     if(place.address_components[i].types[0] == 'country'){
-        //         document.getElementById('country').innerHTML = place.address_components[i].long_name;
-        //     }
-        // }
-        // document.getElementById('location').innerHTML = place.formatted_address;
-        document.getElementById('lat').innerHTML = place.geometry.location.lat();
-        document.getElementById('lon').innerHTML = place.geometry.location.lng();
-    });
-}
+geocoder.addTo('#searchInput');
+ 
+// Get the geocoder results container.
+var results = document.getElementById('result');
+ 
+// Add geocoder result to container.
+geocoder.on('result', function (e) {
+  console.log(e);
+});
+ 
+// Clear results container when search is cleared.
+geocoder.on('clear', function () {
+  //results.innerText = '';
+});
   </script>
 
   <footer id="d3-celestial-footer">
@@ -377,5 +373,4 @@ function initMap() {
 
 <!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 <script src="../assets/js/jquery.validate.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyD5MHva6JL1pfPIqea-bTPJyy_M9rA8474&callback=initMap"></script>
 </html>
