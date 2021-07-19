@@ -353,7 +353,7 @@ geocoder.addTo('#geocoder');
  
 // Add geocoder result to container.
 geocoder.on('result', function (e) {
-  console.log(e);
+  console.log(e.result.geometry.coordinates);
 });
  
 // Clear results container when search is cleared.
