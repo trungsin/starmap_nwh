@@ -361,6 +361,7 @@ geocoder.on('result', function (e) {
   Celestial.reload({
     geopos : [e.result.geometry.coordinates[1],e.result.geometry.coordinates[0]]
   });
+  Celestial.redraw();
   //Celestial.go();
   //Celestial.rotate({center:[e.result.geometry.coordinates[1],e.result.geometry.coordinates[0]]});
 });
