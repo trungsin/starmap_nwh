@@ -354,6 +354,8 @@ geocoder.addTo('#geocoder');
 // Add geocoder result to container.
 geocoder.on('result', function (e) {
   console.log(e.result.geometry.coordinates);
+  document.getElementById('lat').innerHTML = e.result.geometry.coordinates[1];
+  document.getElementById('lon').innerHTML = e.result.geometry.coordinates[0];
 });
  
 // Clear results container when search is cleared.
