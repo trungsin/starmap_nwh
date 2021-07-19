@@ -15,6 +15,8 @@
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/gsdk-bootstrap-wizard.css" rel="stylesheet" />
   <link rel="stylesheet" href="../celestial.css">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
 </head>
 <body>
    <!-- Start your project here-->
@@ -337,9 +339,9 @@ config = {
   //geopos:{ lo37.7749,122.4194}
 };
 Celestial.display(config);
-//mapboxgl.accessToken = 'pk.eyJ1IjoidHJ1bmdzaW4iLCJhIjoiT2huZERJQSJ9.wVEOXlXtNWVgx-AmgYDY8A';
+mapboxgl.accessToken = 'pk.eyJ1IjoidHJ1bmdzaW4iLCJhIjoiT2huZERJQSJ9.wVEOXlXtNWVgx-AmgYDY8A';
 var geocoder = new MapboxGeocoder({
-accessToken: 'pk.eyJ1IjoidHJ1bmdzaW4iLCJhIjoiT2huZERJQSJ9.wVEOXlXtNWVgx-AmgYDY8A',
+accessToken: mapboxgl.accessToken,
 types: 'country,region,place,postcode,locality,neighborhood'
 });
  
