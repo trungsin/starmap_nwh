@@ -43,8 +43,7 @@
 
                     <div class="wizard-header">
                         <h3>
-                           <b>BUILD</b> YOUR PROFILE <br>
-                           <small>This information will let us know more about you.</small>
+                           <b>BUILD</b> YOUR STARMAP <br>
                         </h3>
                     </div>
                     <div class="wizard-navigation">
@@ -61,7 +60,7 @@
                               <div class="col-sm-10 col-sm-offset-1">
                                   <div class="form-group">
                                       <label>Location your: <small>(required)</small></label>
-                                      <input name="location" type="text" class="form-control" placeholder="Typy your location">
+                                      <input name="location" id="searchInput" type="text" class="form-control" placeholder="Typy your location">
                                   </div>
                               </div>
                           </div>
@@ -230,7 +229,8 @@
   </footer>
   <!--/.Footer-->
   <!-- End your project here-->
-  
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyD5MHva6JL1pfPIqea-bTPJyy_M9rA8474"></script>
+
 
   <script type="text/javascript">
 config = {
@@ -322,7 +322,67 @@ config = {
   //geopos:{ lo37.7749,122.4194}
 };
 Celestial.display(config);
+function initMap() {
+ 
+    var input = document.getElementById('searchInput');
+    
 
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.bindTo('bounds', map);
+
+    
+    autocomplete.addListener('place_changed', function() {
+        infowindow.close();
+        marker.setVisible(false);
+        var place = autocomplete.getPlace();
+        if (!place.geometry) {
+            window.alert("Autocomplete's returned place contains no geometry");
+            return;
+        }
+  
+        // If the place has a geometry, then present it on a map.
+        if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+        } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);
+        }
+        marker.setIcon(({
+            url: place.icon,
+            size: new google.maps.Size(71, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(35, 35)
+        }));
+        marker.setPosition(place.geometry.location);
+        marker.setVisible(true);
+    
+        var address = '';
+        if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+        }
+    
+        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+        infowindow.open(map, marker);
+      
+        // Location details
+        for (var i = 0; i < place.address_components.length; i++) {
+            if(place.address_components[i].types[0] == 'postal_code'){
+                document.getElementById('postal_code').innerHTML = place.address_components[i].long_name;
+            }
+            if(place.address_components[i].types[0] == 'country'){
+                document.getElementById('country').innerHTML = place.address_components[i].long_name;
+            }
+        }
+        document.getElementById('location').innerHTML = place.formatted_address;
+        document.getElementById('lat').innerHTML = place.geometry.location.lat();
+        document.getElementById('lon').innerHTML = place.geometry.location.lng();
+    });
+}
   </script>
 
   <footer id="d3-celestial-footer">
