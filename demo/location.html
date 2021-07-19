@@ -257,18 +257,10 @@ config = {
   projection: "airy",
   datapath: "../data/",
   planets:  { show: true },
-  form: true,         // Display form for interactive settings. Needs a div with
+  form: false,         // Display form for interactive settings. Needs a div with
                       // id="celestial-form", created automatically if not present
   location: false,    // Display location settings. Deprecated, use formFields below
-  formFields: {"location": true,  // Set visiblity for each group of fields with the respective id
-               "general": true,  
-               "stars": true,  
-               "dsos": true,  
-               "constellations": true,  
-               "lines": true,  
-               "other": true,  
-               "download": true},  
-  advanced: true,     // Display fewer form fields if false 
+  interactive: false,  // Enable zooming and rotation with mousewheel and dragging
   controls: false,     // Display zoom controls
   stars: {
     show: true,    // Show stars
@@ -361,9 +353,6 @@ geocoder.on('result', function (e) {
   Celestial.display({
     geopos : [e.result.geometry.coordinates[1],e.result.geometry.coordinates[0]]
   });
-  Celestial.redraw();
-  //Celestial.go();
-  //Celestial.rotate({center:[e.result.geometry.coordinates[1],e.result.geometry.coordinates[0]]});
 });
  
 // Clear results container when search is cleared.
