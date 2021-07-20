@@ -252,15 +252,23 @@ min-width: 100%;
 
   <script type="text/javascript">
 config = {
-  width:500,
+  width:470,
   location: true,
   projection: "airy",
   datapath: "../data/",
-  planets:  { show: true },
   form: false,         // Display form for interactive settings. Needs a div with
                       // id="celestial-form", created automatically if not present
   location: false,    // Display location settings. Deprecated, use formFields below
-  interactive: false,  // Enable zooming and rotation with mousewheel and dragging
+  formFields: {"location": true,  // Set visiblity for each group of fields with the respective id
+               "general": true,  
+               "stars": true,  
+               "dsos": true,  
+               "constellations": true,  
+               "lines": true,  
+               "other": true,  
+               "download": true},  
+  advanced: true,     // Display fewer form fields if false 
+  planets:true,
   stars: {
     show: true,    // Show stars
     limit: 6,      // Show only stars brighter than limit magnitude
