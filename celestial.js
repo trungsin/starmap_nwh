@@ -11554,6 +11554,7 @@ Celestial.display = function(config) {
   mapProjection = Celestial.projection(cfg.projection).rotate(rotation).translate([canvaswidth/2, canvasheight/2]).scale(scale * zoomlevel);
     
   zoom = d3.geo.zoom().projection(mapProjection).center([canvaswidth/2, canvasheight/2]).scaleExtent([scale, scale * zoomextent]).on("zoom.redraw", redraw);
+
   // Set initial zoom level
   scale *= zoomlevel;
 
@@ -11569,7 +11570,7 @@ Celestial.display = function(config) {
 
   var graticule = d3.geo.graticule().minorStep([15,10]);
   
-  map = d3.geo.path().projection(mapProjection).context(context);
+  //map = d3.geo.path().projection(mapProjection).context(context);
    
   //parent div with id #celestial-map or body
   if (container) container.selectAll(parentElement + " *").remove();
