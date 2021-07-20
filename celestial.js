@@ -11482,7 +11482,6 @@
 })();
 //end d3.geo.projection.js
 // Copyright 2015-2020 Olaf Frohn https://github.com/ofrohn, see LICENSE
-// Start Celestial
 !(function() {
 var Celestial = {
   version: '0.7.35',
@@ -11529,9 +11528,7 @@ Celestial.display = function(config) {
       canvaswidth = isNumber(cfg.background.width) ? width + cfg.background.width : width,
       pixelRatio = window.devicePixelRatio || 1,
       projectionSetting = getProjection(cfg.projection, cfg.projectionRatio);
-  console.log('s');
-  console.log(width);
-  console.log(canvaswidth);
+
   if (!projectionSetting) return;
 
   if (cfg.lines.graticule.lat && cfg.lines.graticule.lat.pos[0] === "outline") projectionSetting.scale -= 2;
@@ -11549,12 +11546,10 @@ Celestial.display = function(config) {
       path = cfg.datapath;
      
   if (parentElement !== "body") parent.style.height = px(canvasheight);
-  //   canvaswidth=canvaswidth + 40;
-  // canvasheight=canvasheight + 200;
+  
   mapProjection = Celestial.projection(cfg.projection).rotate(rotation).translate([canvaswidth/2, canvasheight/2]).scale(scale * zoomlevel);
     
   zoom = d3.geo.zoom().projection(mapProjection).center([canvaswidth/2, canvasheight/2]).scaleExtent([scale, scale * zoomextent]).on("zoom.redraw", redraw);
-
   // Set initial zoom level
   scale *= zoomlevel;
 
@@ -11562,31 +11557,29 @@ Celestial.display = function(config) {
       culture = (cfg.culture !== "" && cfg.culture !== "iau") ? cfg.culture : "";
   
   if (canvas[0].length === 0) canvas = d3.select(parentElement).append("canvas");
-  canvas.attr("width", width).attr("height", height);
-
-  //canvas.style("width", px(canvaswidth)).style("height", px(canvasheight)).attr("width", canvaswidth * pixelRatio).attr("height", canvasheight * pixelRatio);
+  //canvas.attr("width", width).attr("height", height);
+  canvas.style("width", px(canvaswidth)).style("height", px(canvasheight)).attr("width", canvaswidth * pixelRatio).attr("height", canvasheight * pixelRatio);
   var context = canvas.node().getContext("2d");  
   context.setTransform(pixelRatio,0,0,pixelRatio,0,0);
 
   var graticule = d3.geo.graticule().minorStep([15,10]);
-  console.log('context',context);
+  
   map = d3.geo.path().projection(mapProjection).context(context);
    
   //parent div with id #celestial-map or body
   if (container) container.selectAll(parentElement + " *").remove();
   else container = d3.select(parentElement).append("container");
-  
+ 
   if (cfg.interactive) {
     canvas.call(zoom);
     d3.select(parentElement).on('dblclick', function () { zoomBy(1.5625); return false; });
   } else {
     canvas.attr("style", "cursor: default!important");
   }
-
   setClip(projectionSetting.clip);
 
   d3.select(window).on('resize', resize);
-  console.log(resize);
+
   if (cfg.interactive === true && cfg.controls === true && $("celestial-zoomin") === null) {
     d3.select(parentElement).append("input").attr("type", "button").attr("id", "celestial-zoomin").attr("value", "\u002b").on("click", function () { zoomBy(1.25); return false; });
     d3.select(parentElement).append("input").attr("type", "button").attr("id", "celestial-zoomout").attr("value", "\u2212").on("click", function () { zoomBy(0.8); return false; });
@@ -11867,7 +11860,6 @@ Celestial.display = function(config) {
     mapProjection.translate([canvaswidth/2, canvasheight/2]).scale(scale * zoomlevel);
     if (parent) parent.style.height = px(height);
     scale *= zoomlevel;
-    //console.log(width,height,scale);
     redraw();
   }
 
@@ -12379,7 +12371,6 @@ Celestial.display = function(config) {
     else if (parent) w = parent.getBoundingClientRect().width - margin[0] *2;
     else w = window.getBoundingClientRect().width - margin[0]*2;
     //if (isNumber(cfg.background.width)) w -= cfg.background.width;
-    ///console.log(w);
     return w;
   }
   
@@ -12423,11 +12414,7 @@ Celestial.display = function(config) {
   this.mapProjection = mapProjection;
   this.context = context;
   this.metrics = function() {
-    console.log(width);
-    console.log(height);
-    console.log(margin);
     return {"width": width, "height": height, "margin": margin, "scale": mapProjection.scale()};
-
   };
   this.setStyle = setStyle;
   this.setTextStyle = setTextStyle;
@@ -13516,7 +13503,7 @@ Canvas.symbol = function () {
       text = d3.functor(""),  
       padding = d3.functor([2,2]),  
       pos;
-  console.log(size());
+  
   function canvas_symbol(context) {
     draw_symbol[type()](context);
   }
