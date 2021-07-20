@@ -11481,6 +11481,7 @@
   }).raw = cassini;  
 })();
 //end d3.geo.projection.js
+//start Celestial
 // Copyright 2015-2020 Olaf Frohn https://github.com/ofrohn, see LICENSE
 !(function() {
 var Celestial = {
@@ -11523,7 +11524,7 @@ Celestial.display = function(config) {
     parent = null; 
   }
    
-  var margin = [16, 16],
+  var margin = [50, 50],
       width = getWidth(),
       canvaswidth = isNumber(cfg.background.width) ? width + cfg.background.width : width,
       pixelRatio = window.devicePixelRatio || 1,
