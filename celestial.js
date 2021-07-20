@@ -11482,6 +11482,7 @@
 })();
 //end d3.geo.projection.js
 // Copyright 2015-2020 Olaf Frohn https://github.com/ofrohn, see LICENSE
+// Start Celestial
 !(function() {
 var Celestial = {
   version: '0.7.35',
@@ -11528,7 +11529,7 @@ Celestial.display = function(config) {
       canvaswidth = isNumber(cfg.background.width) ? width + cfg.background.width : width,
       pixelRatio = window.devicePixelRatio || 1,
       projectionSetting = getProjection(cfg.projection, cfg.projectionRatio);
-
+  console.log(width);
   if (!projectionSetting) return;
 
   if (cfg.lines.graticule.lat && cfg.lines.graticule.lat.pos[0] === "outline") projectionSetting.scale -= 2;
