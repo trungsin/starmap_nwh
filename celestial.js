@@ -12421,7 +12421,11 @@ Celestial.display = function(config) {
   this.mapProjection = mapProjection;
   this.context = context;
   this.metrics = function() {
+    console.log(width);
+    console.log(height);
+    console.log(margin);
     return {"width": width, "height": height, "margin": margin, "scale": mapProjection.scale()};
+
   };
   this.setStyle = setStyle;
   this.setTextStyle = setTextStyle;
