@@ -13514,7 +13514,7 @@ Canvas.symbol = function () {
       text = d3.functor(""),  
       padding = d3.functor([2,2]),  
       pos;
-  
+  console.log(size());
   function canvas_symbol(context) {
     draw_symbol[type()](context);
   }
