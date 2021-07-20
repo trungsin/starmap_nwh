@@ -11551,7 +11551,7 @@ Celestial.display = function(config) {
   if (parentElement !== "body") parent.style.height = px(canvasheight);
   canvaswidth=canvaswidth + 40;
   canvasheight=canvasheight + 200;
-  mapProjection = Celestial.projection(cfg.projection).rotate(rotation).translate([canvaswidth/2, canvasheight/2]).scale(scale * zoomlevel);
+  mapProjection = Celestial.projection(cfg.projection).rotate(rotation).translate([canvaswidth/2, canvasheight/2]);//.scale(scale * zoomlevel);
     
   zoom = d3.geo.zoom().projection(mapProjection).center([canvaswidth/2, canvasheight/2]).scaleExtent([scale, scale * zoomextent]).on("zoom.redraw", redraw);
   // Set initial zoom level
