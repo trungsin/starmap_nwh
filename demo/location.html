@@ -47,9 +47,9 @@ min-width: 100%;
         <div class="col-md-6 mb-4" style="text-align: center;">
           <div style="overflow:hidden;"><div id="celestial-map"></div></div>
           <div>
-            <p>sss</p>
-            <p>sss</p>
-            <p>sss</p>
+            <p id="yourlocation">sss</p>
+            <p id="yourdate">sss</p>
+            <p id="yourtime">sss</p>
           </div>
         </div>
         <!--Grid column-->
@@ -370,7 +370,11 @@ types: 'country,region,place,postcode,locality,neighborhood'
 geocoder.addTo('#geocoder');
 // Add geocoder result to container.
 geocoder.on('result', function (e) {
-  console.log(e.result.geometry.coordinates);
+  console.log(e.result.geometry);
+  // Get the geocoder results container.
+  var results = document.getElementById('result');
+  var yourplace = document.getElementById('yourlocation');
+  yourplace.innerText=e.result.place_name;
   Celestial.skyview({"location" : [e.result.geometry.coordinates[1],e.result.geometry.coordinates[0]]});
 });
  
