@@ -12372,6 +12372,7 @@ Celestial.display = function(config) {
     else if (parent) w = parent.getBoundingClientRect().width - margin[0] *2;
     else w = window.getBoundingClientRect().width - margin[0]*2;
     //if (isNumber(cfg.background.width)) w -= cfg.background.width;
+    console.log(w);
     return w;
   }
   
