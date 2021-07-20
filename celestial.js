@@ -11561,6 +11561,8 @@ Celestial.display = function(config) {
   
   if (canvas[0].length === 0) canvas = d3.select(parentElement).append("canvas");
   //canvas.attr("width", width).attr("height", height);
+  canvaswidth=400;
+  canvasheight=400;
   canvas.style("width", px(canvaswidth)).style("height", px(canvasheight)).attr("width", canvaswidth * pixelRatio).attr("height", canvasheight * pixelRatio);
   var context = canvas.node().getContext("2d");  
   context.setTransform(pixelRatio,0,0,pixelRatio,0,0);
