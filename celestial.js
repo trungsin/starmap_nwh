@@ -11524,7 +11524,7 @@ Celestial.display = function(config) {
     parent = null; 
   }
    
-  var margin = [50, 50],
+  var margin = [16, 16],
       width = getWidth(),
       canvaswidth = isNumber(cfg.background.width) ? width + cfg.background.width : width,
       pixelRatio = window.devicePixelRatio || 1,
@@ -11546,7 +11546,7 @@ Celestial.display = function(config) {
       rotation = getAngles(cfg.center),
       path = cfg.datapath;
      
-  if (parentElement !== "body") parent.style.height = px(canvasheight);
+  if (parentElement !== "body") parent.style.height = px(canvasheight + cfg.canvasheight);
   
   mapProjection = Celestial.projection(cfg.projection).rotate(rotation).translate([canvaswidth/2, canvasheight/2]).scale(scale * zoomlevel);
     
