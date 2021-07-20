@@ -11548,7 +11548,7 @@ Celestial.display = function(config) {
       rotation = getAngles(cfg.center),
       path = cfg.datapath;
      
-  if (parentElement !== "body") parent.style.height = px(canvasheight + 200);
+  if (parentElement !== "body") parent.style.height = px(canvasheight);
   //   canvaswidth=canvaswidth + 40;
   // canvasheight=canvasheight + 200;
   mapProjection = Celestial.projection(cfg.projection).rotate(rotation).translate([canvaswidth/2, canvasheight/2]).scale(scale * zoomlevel);
