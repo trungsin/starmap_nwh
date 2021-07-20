@@ -11585,7 +11585,11 @@ Celestial.display = function(config) {
     d3.select(parentElement).append("input").attr("type", "button").attr("id", "celestial-zoomin").attr("value", "\u002b").on("click", function () { zoomBy(1.25); return false; });
     d3.select(parentElement).append("input").attr("type", "button").attr("id", "celestial-zoomout").attr("value", "\u2212").on("click", function () { zoomBy(0.8); return false; });
   }
-  
+  //my custome sinlt
+  if (cfg.addcontent)
+  {
+    d3.select(parentElement).append("div").attr("id","contentlocaltime");
+  }
   circle = d3.geo.circle().angle([90]);  
   daylight = d3.geo.circle().angle([179.9]);
 
@@ -12986,6 +12990,7 @@ var globalConfig = {};
 //Defaults
 var settings = { 
   canvasheight:0, //my height canvas to custom
+  addcontent:false,
   width: 0,     // Default width; height is determined by projection
   projection: "aitoff",  // Map projection used: airy, aitoff, armadillo, august, azimuthalEqualArea, azimuthalEquidistant, baker, berghaus, boggs, bonne, bromley, collignon, craig, craster, cylindricalEqualArea, cylindricalStereographic, eckert1, eckert2, eckert3, eckert4, eckert5, eckert6, eisenlohr, equirectangular, fahey, foucaut, ginzburg4, ginzburg5, ginzburg6, ginzburg8, ginzburg9, gringorten, hammer, hatano, healpix, hill, homolosine, kavrayskiy7, lagrange, larrivee, laskowski, loximuthal, mercator, miller, mollweide, mtFlatPolarParabolic, mtFlatPolarQuartic, mtFlatPolarSinusoidal, naturalEarth, nellHammer, orthographic, patterson, polyconic, rectangularPolyconic, robinson, sinusoidal, stereographic, times, twoPointEquidistant, vanDerGrinten, vanDerGrinten2, vanDerGrinten3, vanDerGrinten4, wagner4, wagner6, wagner7, wiechel, winkel3
   projectionRatio: null, // Optional override for default projection ratio
