@@ -11549,7 +11549,8 @@ Celestial.display = function(config) {
       path = cfg.datapath;
      
   if (parentElement !== "body") parent.style.height = px(canvasheight);
-  
+  canvaswidth=canvaswidth + 40;
+  canvasheight=canvasheight + 200;
   mapProjection = Celestial.projection(cfg.projection).rotate(rotation).translate([canvaswidth/2, canvasheight/2]).scale(scale * zoomlevel);
     
   zoom = d3.geo.zoom().projection(mapProjection).center([canvaswidth/2, canvasheight/2]).scaleExtent([scale, scale * zoomextent]).on("zoom.redraw", redraw);
@@ -11561,8 +11562,7 @@ Celestial.display = function(config) {
   
   if (canvas[0].length === 0) canvas = d3.select(parentElement).append("canvas");
   //canvas.attr("width", width).attr("height", height);
-  canvaswidth=canvaswidth + 40;
-  canvasheight=canvasheight + 200;
+
   canvas.style("width", px(canvaswidth)).style("height", px(canvasheight)).attr("width", canvaswidth * pixelRatio).attr("height", canvasheight * pixelRatio);
   var context = canvas.node().getContext("2d");  
   context.setTransform(pixelRatio,0,0,pixelRatio,0,0);
