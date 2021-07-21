@@ -79,19 +79,26 @@ min-width: 100%;
                     <div class="tab-content">
                         <div class="tab-pane" id="moment">
                           <div class="row">
-                              <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
-                              <div class="col-sm-10 col-sm-offset-1">
-                                  <div class="form-group">
-                                      <label>Your Location: <small>(required)</small></label>
-                                      <div id="geocoder"></div>
-                                  </div>
-                              </div>
-                              <div class="col-sm-10 col-sm-offset-1">
+                            <h4 class="info-text"> Let's start with the basic information (with validation)</h4>
+                            <div class="col-sm-10 col-sm-offset-1">
                                 <div class="form-group">
-                                    <label>Your date: </label>
-                                    <input type="date" id="yourdate" name="yourdate"
-                                        value="2018-07-22">
+                                    <label>Your Location: <small>(required)</small></label>
+                                    <div id="geocoder"></div>
                                 </div>
+                            </div>
+                            <div class="col-sm-10 col-sm-offset-1">
+                              <div class="form-group">
+                                  <label>Your date: </label>
+                                  <input type="date" id="yourdate" name="yourdate"
+                                      value="">
+                              </div>
+                            </div>
+                            <div class="col-sm-10 col-sm-offset-1">
+                              <div class="form-group">
+                              </div>
+                                <label for="yourtime">Choose a time for your meeting:</label>
+                                <input type="time" id="yourtime" name="yourtime">
+                              </div>
                             </div>
                           </div>
                         </div>
