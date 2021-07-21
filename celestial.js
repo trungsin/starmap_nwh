@@ -11588,7 +11588,7 @@ Celestial.display = function(config) {
   //my custome sinlt
   if (cfg.addcontent)
   {
-    d3.select(parentElement).append("div").attr("id","contentlocaltime");
+    d3.select(parentElement).append("div").attr("id","contentlocaltime").text("Your Memory Text");
   }
   circle = d3.geo.circle().angle([90]);  
   daylight = d3.geo.circle().angle([179.9]);
