@@ -120,22 +120,23 @@ min-width: 100%;
                           <h4 class="info-text"> What are you doing? (checkboxes) </h4>
                           <div class="row">
                             <div class="col-sm-10 col-sm-offset-1">
-                              <div class="choice" data-toggle="buttons">
-                                <input type="radio" name="jobb" value="Design">
-                                <div class="icon">
-                                  <i class="fa fa-pencil"></i>
+                              <div class="col-sm-4 col-sm-offset-2">
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Renters you approve will be able to take this boat">
+                                    <input type="radio" name="job" value="Design">
+                                    <div class="icon">
+                                        <i class="fa fa-life-ring"></i>
+                                    </div>
+                                    <h6>No Captain</h6>
                                 </div>
-                                <h6>Design</h6>
-                                <input type="radio" name="jobb" value="Code">
-                                <div class="icon">
-                                  <i class="fa fa-terminal"></i>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Select this option if you or a certified captain will be included.">
+                                    <input type="radio" name="job" value="Code">
+                                    <div class="icon">
+                                        <i class="fa fa-male"></i>
+                                    </div>
+                                    <h6>Includes Captain</h6>
                                 </div>
-                                <h6>Code</h6>
-                                <input type="radio" name="jobb" value="Develop">
-                                <div class="icon">
-                                  <i class="fa fa-laptop"></i>
-                                </div>
-                                    <h6>Develop</h6>
                               </div>
                             </div>
                           </div>
