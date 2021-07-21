@@ -98,9 +98,10 @@ input[type="number"]::-webkit-outer-spin-button { height: auto; }
 #celestial-date .selected { border:1px solid #000; border-radius:3px; }
 #celestial-date .today { background:#ff0; }
 
-
-@media print {
-  #celestial-zoomin, #celestial-zoomout, #celestial-form { display: none; }
+#contentlocaltime
+{
+  height: 200px;
+  padding-top: 100px;
 }
 
  /* Footer color for sake of consistency with Navbar */
