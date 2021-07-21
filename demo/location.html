@@ -89,15 +89,14 @@ min-width: 100%;
                             <div class="col-sm-10 col-sm-offset-1">
                               <div class="form-group">
                                   <label>Your date: </label>
-                                  <input type="date" id="yourdate" name="yourdate"
+                                  <input type="date" id="gyourdate" name="yourdate"
                                       value="">
                               </div>
                             </div>
                             <div class="col-sm-10 col-sm-offset-1">
                               <div class="form-group">
-                              </div>
-                                <label for="yourtime">Choose a time for your meeting:</label>
-                                <input type="time" id="yourtime" name="yourtime">
+                                <label for="yourtime">Your time:</label>
+                                <input type="time" id="gyourtime" name="yourtime">
                               </div>
                             </div>
                           </div>
@@ -345,6 +344,12 @@ geocoder.on('result', function (e) {
 // Clear results container when search is cleared.
 geocoder.on('clear', function () {
   //results.innerText = '';
+});
+$("#gyourdate").change(function(){
+  $("#yourdate").text($("#gyourdate").val());
+});
+$("#gyourtime").change(function(){
+  $("#yourtime").text($("#gyourtime").val());
 });
   </script>
 
