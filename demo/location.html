@@ -98,15 +98,20 @@ min-width: 100%;
                             </div>
                             <div class="col-sm-10 col-sm-offset-1">
                               <div class="form-group">
-                                  <label>Your date: </label>
-                                  <input type="date" id="gyourdate" name="yourdate"
-                                      value="">
+                                  <label for="gyourdate">Your date: </label>
+                                  <input type="date" id="gyourdate" name="gyourdate" value="">
                               </div>
                             </div>
                             <div class="col-sm-10 col-sm-offset-1">
                               <div class="form-group">
-                                <label for="yourtime">Your time:</label>
-                                <input type="time" id="gyourtime" name="yourtime">
+                                <label for="gyourtime">Your time:</label>
+                                <input type="time" id="gyourtime" name="gyourtime">
+                              </div>
+                            </div>
+                            <div class="col-sm-10 col-sm-offset-1">
+                              <div class="form-group">
+                                <label for="gyourtext">Your time:</label>
+                                <input type="time" id="gyourtext" name="gyourtext">
                               </div>
                             </div>
                           </div>
@@ -360,6 +365,9 @@ $("#gyourdate").change(function(){
 });
 $("#gyourtime").change(function(){
   $("#yourtime").text($("#gyourtime").val());
+});
+$("#gyourtext").change(function(){
+  $("#contentlocaltime").text($("#gyourtext").val());
 });
   </script>
 
