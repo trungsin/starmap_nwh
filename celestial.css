@@ -173,3 +173,6 @@ svg .constname {
   .themes-panel[_ngcontent-txe-c148] .theme-color-container.selected[_ngcontent-txe-c148] {
   border: 2px solid #0072ff;
   }
+  .theme-color-container.WHITE[_ngcontent-txe-c148] > div[_ngcontent-txe-c148] {
+    border: 2px solid #111;
+  }
