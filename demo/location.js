@@ -147,15 +147,19 @@ config = {
     $("#contentlocaltime").text($("#gyourtext").val());
   });
   $(".BLACK").click(function(){
+    removestyle();
     $("#yourdesign").toggleClass("back_design");
   });
   $(".MIDNIGHT_BLUE").click(function(){
+    removestyle();
     $("#yourdesign").toggleClass("midnight_blue_design");
   });
   $(".BLUE_GREY").click(function(){
+    removestyle();
     $("#yourdesign").toggleClass("blue_grey_design");
   });
   $(".WHITE").click(function(){
+    removestyle();
     $("#yourdesign").toggleClass("white_design");
   });
    
