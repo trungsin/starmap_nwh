@@ -119,7 +119,20 @@ config = {
     yourplace.innerText=e.result.place_name;
     Celestial.skyview({"location" : [e.result.geometry.coordinates[1],e.result.geometry.coordinates[0]]});
   });
-   
+  function removestyle(){
+    if($("#yourdesign").hasClass("back_design")){
+      $("#yourdesign").toggleClass("back_design");
+    }
+    if($("#yourdesign").hasClass("midnight_blue_design")){
+      $("#yourdesign").toggleClass("midnight_blue_design");
+    }
+    if($("#yourdesign").hasClass("blue_grey_design")){
+      $("#yourdesign").toggleClass("blue_grey_design");
+    }
+    if($("#yourdesign").hasClass("white_design")){
+      $("#yourdesign").toggleClass("white_design");
+    }
+  }
   // Clear results container when search is cleared.
   geocoder.on('clear', function () {
     //results.innerText = '';
