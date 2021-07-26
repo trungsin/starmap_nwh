@@ -136,7 +136,3 @@ config = {
   $(".BLACK theme-color-container").click(function(){
     alert("sdsd");
   });
-  $(document).on("click",".BLACK theme-color-container", function () {
-    var clickedBtnID = $(this).attr('id'); // or var clickedBtnID = this.id
-    alert('you clicked on button #' + clickedBtnID);
- });
