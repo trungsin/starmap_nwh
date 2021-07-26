@@ -133,6 +133,6 @@ config = {
   $("#gyourtext").change(function(){
     $("#contentlocaltime").text($("#gyourtext").val());
   });
-  $(".BLACK theme-color-container").click(function(){
+  $(".BLACK").click(function(){
     alert("sdsd");
   });
