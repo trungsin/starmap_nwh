@@ -134,5 +134,17 @@ config = {
     $("#contentlocaltime").text($("#gyourtext").val());
   });
   $(".BLACK").click(function(){
-    alert("sdsd");
+    $("#yourdesign").toggleClass("back_design");
   });
+  $(".MIDNIGHT_BLUE").click(function(){
+    $("#yourdesign").toggleClass("midnight_blue_design");
+  });
+  $(".BLUE_GREY").click(function(){
+    $("#yourdesign").toggleClass("blue_grey_design");
+  });
+  $(".WHITE").click(function(){
+    $("#yourdesign").toggleClass("white_design");
+  });
+   
+  
+

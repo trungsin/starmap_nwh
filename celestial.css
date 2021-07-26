@@ -176,3 +176,15 @@ svg .constname {
   .theme-color-container.WHITE[_ngcontent-txe-c148] > div[_ngcontent-txe-c148] {
     border: 2px solid #111;
   }
+  .back_design{
+    background-color: #000000;
+  }
+  .midnight_blue_design{
+    background-color: #191b2a;
+  }
+  .blue_grey_design{
+    background-color: #4d4d59;
+  }
+  .white_design{
+    background-color: #ffffff;
+  }
