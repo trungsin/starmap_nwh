@@ -149,18 +149,35 @@ config = {
   $(".BLACK").click(function(){
     removestyle();
     $("#yourdesign").toggleClass("back_design");
+    if($(".BLACK").hasClass("selected"))
+      return;
+    else
+      $(".BLACK").toggleClass("selected");
   });
   $(".MIDNIGHT_BLUE").click(function(){
     removestyle();
     $("#yourdesign").toggleClass("midnight_blue_design");
+    if($(".MIDNIGHT_BLUE").hasClass("selected"))
+      return;
+    else
+      $(".MIDNIGHT_BLUE").toggleClass("selected");
   });
   $(".BLUE_GREY").click(function(){
     removestyle();
     $("#yourdesign").toggleClass("blue_grey_design");
+    if($(".BLUE_GREY").hasClass("selected"))
+      return;
+    else
+      $(".BLUE_GREY").toggleClass("selected");
   });
   $(".WHITE").click(function(){
     removestyle();
     $("#yourdesign").toggleClass("white_design");
+    $("#yourdesign").toggleClass("blue_grey_design");
+    if($(".WHITE").hasClass("selected"))
+      return;
+    else
+      $(".WHITE").toggleClass("selected");
   });
    
   
