@@ -3,8 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-echo phpinfo();
-echo "ss".$_POST;
+//echo phpinfo();
+echo json_encode($_POST);
 // die;
 // $curl = curl_init();
 
