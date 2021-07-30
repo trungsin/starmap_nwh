@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 header('Access-Control-Allow-Origin: *');
 //echo phpinfo();
 echo json_encode($_POST);
-// die;
+ die;
 // $curl = curl_init();
 
 // curl_setopt_array($curl, array(
