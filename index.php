@@ -8,7 +8,7 @@ $page = $_REQUEST['page'];
 $ulink = $_REQUEST['ulink'];
 //for($i=0; $i<$page; $i++){
     $doc = new DOMDocument();
-    $doc->loadHTMLFile($ulink."&page=".(2);
+    $doc->loadHTMLFile($ulink."&page=".(2));
     $finder = new DomXPath($doc);
     $spaner = $finder->query("//*[contains(@class, 'wt-grid wt-grid--block wt-pl-xs-0 tab-reorder-container')]");
 //}
