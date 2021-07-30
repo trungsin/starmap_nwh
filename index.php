@@ -1,4 +1,5 @@
 <?php
+echo php_info();
 echo "ss".$_POST;
 die;
 $curl = curl_init();
