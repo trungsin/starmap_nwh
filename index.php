@@ -4,7 +4,15 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 header('Access-Control-Allow-Origin: *');
 //echo phpinfo();
-echo json_encode($_REQUEST['page']);
+$page = $_REQUEST['page'];
+$ulink = $_REQUEST['ulink'];
+//for($i=0; $i<$page; $i++){
+    $doc = new DOMDocument();
+    $doc->loadHTMLFile($ulink."&page=".(2);
+    $finder = new DomXPath($doc);
+    $spaner = $finder->query("//*[contains(@class, 'wt-grid wt-grid--block wt-pl-xs-0 tab-reorder-container')]");
+//}
+echo json_encode(spaner);
  die;
 // $curl = curl_init();
 
