@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 header('Access-Control-Allow-Origin: *');
 //echo phpinfo();
-echo json_encode($_POST);
+echo json_encode($__REQUEST['lstProduct']);
  die;
 // $curl = curl_init();
 
