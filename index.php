@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-echo php_info();
+echo phpinfo();
 echo "ss".$_POST;
 // die;
 // $curl = curl_init();
