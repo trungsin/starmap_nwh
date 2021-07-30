@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-header('Access-Control-Allow-Origin: *');
+//header('Access-Control-Allow-Origin: *');
 //echo phpinfo();
 $page = $_REQUEST['page'];
 $ulink = $_REQUEST['ulink'];
@@ -12,8 +12,8 @@ $ulink = $_REQUEST['ulink'];
     $finder = new DomXPath($doc);
     $spaner = $finder->query("//*[contains(@class, 'wt-grid wt-grid--block wt-pl-xs-0 tab-reorder-container')]");
 //}
-echo json_encode(spaner);
- die;
+echo $spaner;
+ //die;
 // $curl = curl_init();
 
 // curl_setopt_array($curl, array(
