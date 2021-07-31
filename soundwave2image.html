@@ -20,6 +20,7 @@
     <input type="file" accept="audio/mp3">
     <br>
     <canvas height="1000"></canvas>
+    <button id="btnDownload" onclick="downloadCanvas()">Download Me!</button>
 
 </body>
 </style>
@@ -63,8 +64,24 @@ async function drawToCanvas() {
     ctx.lineTo(margin + Number(index), centerHeight + array[index] * scaleFactor);
     ctx.stroke();
   }
+  
+
 }
 
 
 input.addEventListener("input", drawToCanvas);
+function downloadCanvas(){  
+    // get canvas data  
+    var image = canvas.toDataURL();  
+  
+    // create temporary link  
+    var tmpLink = document.createElement( 'a' );  
+    tmpLink.download = 'image.png'; // set the name of the download file 
+    tmpLink.href = image;  
+  
+    // temporarily add link to body and initiate the download  
+    document.body.appendChild( tmpLink );  
+    tmpLink.click();  
+    document.body.removeChild( tmpLink );  
+}
 </script>
