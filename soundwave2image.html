@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml"
+            class="ui-toolkit"
+                  data-user-id="183312847"
+      data-user-login-name="rkclctfq"
+      data-user-is-seller=""
+            >
+<head>
+    <meta property="og:site_name" content="Etsy" />
+    <meta property="og:locale" content="en_US" />
+<style>
+    canvas {
+  width: 90%;
+  height: 400px;
+    }</style>
+</head>
+<body>
+    <input type="file" accept="audio/mp3">
+    <br>
+    <canvas height="1000"></canvas>
+
+</body>
+</style>
+<script type="text/javascript" charset="utf-8">
+const margin = 10;
+const chunkSize = 50;
+
+
+
+const input = document.querySelector("input");
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
+const ac = new AudioContext();
+const {width, height} = canvas;
+const centerHeight = Math.ceil(height / 2);
+const scaleFactor = (height - margin * 2) / 2;
+
+async function drawToCanvas() {
+  const buffer = await input.files[0].arrayBuffer();
+  const audioBuffer = await ac.decodeAudioData(buffer);
+  const float32Array = audioBuffer.getChannelData(0);
+
+  const array = [];
+
+  let i = 0;
+  const length = float32Array.length;
+  while (i < length) {
+    array.push(
+      float32Array.slice(i, i += chunkSize).reduce(function (total, value) {
+        return Math.max(total, Math.abs(value));
+      })
+    );
+  }
+
+  canvas.width = Math.ceil(float32Array.length / chunkSize + margin * 2);
+
+  for (let index in array) {
+    ctx.strokeStyle = "black";
+    ctx.beginPath();
+    ctx.moveTo(margin + Number(index), centerHeight - array[index] * scaleFactor);
+    ctx.lineTo(margin + Number(index), centerHeight + array[index] * scaleFactor);
+    ctx.stroke();
+  }
+}
+
+
+input.addEventListener("input", drawToCanvas);
+</script>
