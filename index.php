@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 //header('Access-Control-Allow-Origin: *');
 //echo phpinfo();
-$IDlists = json_encode($_REQUEST['activitiesArray']);
+$IDlists = $_REQUEST['activitiesArray'];
 echo count($IDlists);
 die;
 // $urlApi = "https://openapi.etsy.com/v2/listings/";
