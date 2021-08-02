@@ -11,10 +11,10 @@ $urlApi = "https://openapi.etsy.com/v2/listings/";
 //          exJeyZtXODeekHfX8VRgMQ
 $token = "y3f61lj3isldeeqkf4lhmsd6";
 $url = $urlApi.$IDlists[0] ."?api_key=".$token;
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $response_body = curl_exec($ch);
-    print($response_body);
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response_body = curl_exec($ch);
+print($response_body);
 die;
 // foreach($IDlists as $IDlist){
 //     / Make sure you define API_KEY to be your unique, registered key
