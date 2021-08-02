@@ -2,6 +2,8 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+define('PI', 3.14);
+
 //header('Access-Control-Allow-Origin: *');
 //echo phpinfo();
 $IDlists = $_REQUEST['activitiesArray'];
