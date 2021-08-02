@@ -18,6 +18,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response_body = curl_exec($ch);
 //print_r($response_body->results[0]->);
 //die;
+
 foreach($IDlists as $IDlist){
     // Make sure you define API_KEY to be your unique, registered key
     //$url = "https://openapi.etsy.com/v2/users/etsystore?api_key=" . API_KEY;
