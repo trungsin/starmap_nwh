@@ -6,29 +6,34 @@ error_reporting(E_ALL);
 //echo phpinfo();
 $IDlists = $_REQUEST['activitiesArray'];
 echo count($IDlists);
+$urlApi = "https://openapi.etsy.com/v2/listings/";
+//$clientId="y8toq4d0ow3zicc5";
+//          exJeyZtXODeekHfX8VRgMQ
+$token = "y3f61lj3isldeeqkf4lhmsd6";
+$url = $urlApi.$IDlists[0] ."?api_key=".$token;
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response_body = curl_exec($ch);
+    print($response_body);
 die;
-// $urlApi = "https://openapi.etsy.com/v2/listings/";
-// $curl = curl_init();
+// foreach($IDlists as $IDlist){
+//     / Make sure you define API_KEY to be your unique, registered key
+//     //$url = "https://openapi.etsy.com/v2/users/etsystore?api_key=" . API_KEY;
+//     $url = $urlApi.$IDlist ."?api_key=".$token;
+//     $ch = curl_init($url);
+//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//     $response_body = curl_exec($ch);
+//     $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+//     if (intval($status) != 200) throw new Exception("HTTP $status\n$response_body");
+//     sleep(5);
+// }
 
-// curl_setopt_array($curl, array(
-//     CURLOPT_URL => $urlApi,
-//     CURLOPT_RETURNTRANSFER => true,
-//     CURLOPT_ENCODING => '',
-//     CURLOPT_MAXREDIRS => 10,
-//     CURLOPT_TIMEOUT => 0,
-//     CURLOPT_FOLLOWLOCATION => true,
-//     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-//     CURLOPT_CUSTOMREQUEST => 'PUT',
-//     CURLOPT_POSTFIELDS => 'is_digital=true&type=download'
 
-//     CURLOPT_HTTPHEADER => array(
-//         'Content-Type: application/x-www-form-urlencoded',
-//         'x-api-key: 1aa2bb33c44d55eeeeee6fff',
-//         'Authorization: Bearer 12345678.jKBPLnOiYt7vpWlsny_lDKqINn4Ny_jwH89hA4IZgggyzqmV_bmQHGJ3HOHH2DmZxOJn5V1qQFnVP9bCn9jnrggCRz'
-//     ),
-// ));
 
-// $response = curl_exec($curl);
 
-// curl_close($curl);
-// echo $response;
+
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+echo $response;
