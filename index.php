@@ -35,7 +35,7 @@ foreach($IDlists as $IDlist){
     //                     dailyView = Math.round(dailyView);
     // $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     //if (intval($status) != 200) throw new Exception("HTTP $status\n$response_body");
-    sleep(5);
+    sleep(1);
 }
 
 
