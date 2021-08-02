@@ -16,27 +16,27 @@ $url = $urlApi.$IDlists[0] ."?api_key=".$token;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response_body = curl_exec($ch);
-print_r($response_body['results']);
-die;
-// foreach($IDlists as $IDlist){
-//     / Make sure you define API_KEY to be your unique, registered key
-//     //$url = "https://openapi.etsy.com/v2/users/etsystore?api_key=" . API_KEY;
-// //    $url = $urlApi.$IDlist ."?api_key=".$token;
-//     $url = $urlApi.$IDlist."?api_key=".$token;
-//     $ch = curl_init($url);
-//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//     $response_body = curl_exec($ch);
-//     //$responseData = $response_body.results[0];
-//     //echo $responseData.original_creation_tsz."<br>";    
+//print_r($response_body->results[0]->);
+//die;
+foreach($IDlists as $IDlist){
+    // Make sure you define API_KEY to be your unique, registered key
+    //$url = "https://openapi.etsy.com/v2/users/etsystore?api_key=" . API_KEY;
+//    $url = $urlApi.$IDlist ."?api_key=".$token;
+    $url = $urlApi.$IDlist."?api_key=".$token;
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response_body = curl_exec($ch);
+    $responseData = $response_body->results[0];
+    echo $responseData->original_creation_tsz."<br>";    
 
-//     //                     var days = moment().diff(moment.unix(responseData.original_creation_tsz), 'days');
-//     //                     days = days === 0 ? 1 : days;
-//     //                     var dailyView = (responseData.views / days);
-//     //                     dailyView = Math.round(dailyView);
-//     // $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-//     //if (intval($status) != 200) throw new Exception("HTTP $status\n$response_body");
-//     sleep(5);
-// }
+    //                     var days = moment().diff(moment.unix(responseData.original_creation_tsz), 'days');
+    //                     days = days === 0 ? 1 : days;
+    //                     var dailyView = (responseData.views / days);
+    //                     dailyView = Math.round(dailyView);
+    // $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    //if (intval($status) != 200) throw new Exception("HTTP $status\n$response_body");
+    sleep(5);
+}
 
 
 
