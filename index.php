@@ -12,10 +12,10 @@ $urlApi = "https://openapi.etsy.com/v2/listings/";
 //$clientId="y8toq4d0ow3zicc5";
 //          exJeyZtXODeekHfX8VRgMQ
 $token = "y3f61lj3isldeeqkf4lhmsd6";
-$url = $urlApi.$IDlists[0] ."?api_key=".$token;
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$response_body = curl_exec($ch);
+// $url = $urlApi.$IDlists[0] ."?api_key=".$token;
+// $ch = curl_init($url);
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// $response_body = curl_exec($ch);
 //print_r($response_body->results[0]->);
 //die;
 
