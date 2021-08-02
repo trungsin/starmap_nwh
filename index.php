@@ -16,7 +16,7 @@ $url = $urlApi.$IDlists[0] ."?api_key=".$token;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response_body = curl_exec($ch);
-print($response_body.results[0]['original_creation_tsz']);
+print($response_body[results]);
 die;
 // foreach($IDlists as $IDlist){
 //     / Make sure you define API_KEY to be your unique, registered key
