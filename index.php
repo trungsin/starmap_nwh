@@ -34,7 +34,7 @@ foreach($IDlists as $IDlist){
     curl_close($ch);
     $responseData = json_decode($response_body);
     $listing = $responseData->results[0];
-    $now = new DateTime();
+    $now = new Date();
     $now = $now->format('U');
     echo $now; 
     //$datecreate = $now->diff($listing->original_creation_tsz);
