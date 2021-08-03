@@ -31,6 +31,7 @@ foreach($IDlists as $IDlist){
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $response_body = curl_exec($ch);
+    curl_close($curl);
     $responseData = json_decode($response_body);
     $listing = $responseData->results[0];
     echo $listing->original_creation_tsz."<br>";    
@@ -50,7 +51,6 @@ foreach($IDlists as $IDlist){
 
 
 
-$response = curl_exec($curl);
 
-curl_close($curl);
-echo $response;
+
+
