@@ -7,7 +7,7 @@ define('PI', 3.14);
 //header('Access-Control-Allow-Origin: *');
 //echo phpinfo();
 $IDlists = $_REQUEST['ID'];
-echo count($IDlists);
+echo $IDlists."__";
 $urlApi = "https://openapi.etsy.com/v2/listings/";
 //$clientId="y8toq4d0ow3zicc5";
 //          exJeyZtXODeekHfX8VRgMQ
