@@ -18,8 +18,10 @@ $token = "y3f61lj3isldeeqkf4lhmsd6";
 // $response_body = curl_exec($ch);
 //print_r($response_body->results[0]->);
 //die;
-
+$i=0;
 foreach($IDlists as $IDlist){
+    if($i>5)
+        break;
     // Make sure you define API_KEY to be your unique, registered key
     //$url = "https://openapi.etsy.com/v2/users/etsystore?api_key=" . API_KEY;
 //    $url = $urlApi.$IDlist ."?api_key=".$token;
@@ -37,6 +39,7 @@ foreach($IDlists as $IDlist){
     // $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     //if (intval($status) != 200) throw new Exception("HTTP $status\n$response_body");
     sleep(1);
+    $i++;
 }
 
 
