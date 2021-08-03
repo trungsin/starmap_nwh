@@ -30,7 +30,7 @@ foreach($IDlists as $IDlist){
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $response_body = curl_exec($ch);
     //$responseData = $response_body->results[0];
-    print_r($response_body->results);echo "<br>";//$responseData->original_creation_tsz."<br>";    
+    print_r($response_body);echo "<br>";//$responseData->original_creation_tsz."<br>";    
 
     //                     var days = moment().diff(moment.unix(responseData.original_creation_tsz), 'days');
     //                     days = days === 0 ? 1 : days;
