@@ -35,11 +35,11 @@ foreach($IDlists as $IDlist){
     $responseData = json_decode($response_body);
     $listing = $responseData->results[0];
     $now = new DateTime();
-    $now = $now->format('U');
+    echo $now = $now->format('U');
     //echo 
     //$datecreate = $now->diff($listing->original_creation_tsz);
     echo $listing->views."<br>";    
-    echo ($listing->original_creation_tsz - $now)."<br>";    
+    //echo ($listing->original_creation_tsz - $now)."<br>";    
 
     //                     var days = moment().diff(moment.unix(responseData.original_creation_tsz), 'days');
     //                     days = days === 0 ? 1 : days;
