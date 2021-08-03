@@ -22,7 +22,7 @@ $token = "y3f61lj3isldeeqkf4lhmsd6";
 // die;
 $i=0;
 foreach($IDlists as $IDlist){
-    if($i>10)
+    if($i>50)
          break;
     // // Make sure you define API_KEY to be your unique, registered key
     //$url = "https://openapi.etsy.com/v2/users/etsystore?api_key=" . API_KEY;
@@ -31,10 +31,13 @@ foreach($IDlists as $IDlist){
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $response_body = curl_exec($ch);
-    curl_close($curl);
+    curl_close($ch);
     $responseData = json_decode($response_body);
     $listing = $responseData->results[0];
-    echo $listing->original_creation_tsz."<br>";    
+    $now = new Datetime();
+    $datecreate = $now->diff($listing->original_creation_tsz);
+    echo $listing->views."<br>";    
+    echo $datecreate"<br>";    
 
     //                     var days = moment().diff(moment.unix(responseData.original_creation_tsz), 'days');
     //                     days = days === 0 ? 1 : days;
