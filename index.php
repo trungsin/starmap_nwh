@@ -39,9 +39,9 @@ foreach($IDlists as $IDlist){
     //echo $now; 
     //$datecreate = $now->diff($listing->original_creation_tsz);
     echo $listing->original_creation_tsz."<br>";
-    echo strtotime($listing->original_creation_tsz)."<br>";
+    echo $now->format('U')."<br>=";
     //echo $listing->views."<br>";    
-    //echo ($listing->original_creation_tsz - $now)."<br>";    
+    echo ($now - $listing->original_creation_tsz)."<br>";    
 
     //                     var days = moment().diff(moment.unix(responseData.original_creation_tsz), 'days');
     //                     days = days === 0 ? 1 : days;
