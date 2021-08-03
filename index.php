@@ -39,7 +39,7 @@ foreach($IDlists as $IDlist){
     //echo $now; 
     //$datecreate = $now->diff($listing->original_creation_tsz);
     echo $listing->original_creation_tsz."<br>";
-    echo $now->format('U')."<br>=";
+    echo $now."<br>=";
     //echo $listing->views."<br>";    
     echo ($now - $listing->original_creation_tsz)."<br>";    
 
