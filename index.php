@@ -22,7 +22,7 @@ $token = "y3f61lj3isldeeqkf4lhmsd6";
 // die;
 $i=0;
 foreach($IDlists as $IDlist){
-    if($i>100)
+    if($i>10)
          break;
     // // Make sure you define API_KEY to be your unique, registered key
     //$url = "https://openapi.etsy.com/v2/users/etsystore?api_key=" . API_KEY;
