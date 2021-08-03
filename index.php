@@ -34,12 +34,12 @@ foreach($IDlists as $IDlist){
     curl_close($ch);
     $responseData = json_decode($response_body);
     $listing = $responseData->results[0];
-    $now = new Date();
+    $now = new DateTime();
     $now = $now->format('U');
-    echo $now; 
+    //echo $now; 
     //$datecreate = $now->diff($listing->original_creation_tsz);
     echo $listing->views."<br>";    
-    //echo ($listing->original_creation_tsz - $now)."<br>";    
+    echo ($listing->original_creation_tsz - $now)."<br>";    
 
     //                     var days = moment().diff(moment.unix(responseData.original_creation_tsz), 'days');
     //                     days = days === 0 ? 1 : days;
