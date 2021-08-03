@@ -16,7 +16,7 @@ $url = $urlApi.$IDlists[0] ."?api_key=".$token;
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response_body = curl_exec($ch);
-print_r($response_body->results[0]);
+print_r($response_body["results"]);
 die;
 $i=0;
 foreach($IDlists as $IDlist){
